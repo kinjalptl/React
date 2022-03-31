@@ -1,16 +1,14 @@
 import logo from './logo.svg';
 import './App.css';
-import { Routes, Route } from "react-router-dom"
+import { Routes, Route, Link, BrowserRouter } from "react-router-dom"
 import { React, Component } from "react";
 // import ListItem from './compoents/ListItems/ListItems';
 import Heading from './compoents/Heading/Heading';
 import DataTableContainer from './compoents/DataTable/DataTableContainer/DataTableContainer';
-import { Table } from '@mui/material';
+import SingleUser from './compoents/SingleUser/SingleUser';
 
 
 class App extends Component {
-  // class compnent aka stateful compnents aka smart compnents
-  // lifecycle method (only class compnents have life cycle methods)
 
   constructor(props) {
     super(props);
@@ -23,7 +21,7 @@ class App extends Component {
 
   updateGreeting() {
     this.setState({
-      greeting: "Nav",
+      greeting: "Patel",
     });
   }
   setStudents(newValue) {
@@ -50,17 +48,30 @@ class App extends Component {
 
   render() {
     return (
+      < BrowserRouter>
+        <div className="App">
+          <ul>
+            <li>
+              <Link to="/">Heading</Link>
+            </li>
+            <li>
+              <Link to="/DataTableContainer">Tabels</Link>
+            </li>
+            <li>
+              <Link to="/SingleUser">SingleUser</Link>
+            </li>
+          </ul>
+          <Routes>
+            <Route path="/" element={<Heading />} />
+            <Route path='DataTableContainer'  element={<DataTableContainer/>}  />
+            <Route path='SingleUser'  element={<SingleUser/>}  />
 
-      <div className="App">
-        {/* <Routes>
-          <Route path="/" element={<Heading />} />
-          <Route path="table" element={<Table />} />
-        </Routes> */}
+          </Routes>
 
-        <Heading></Heading>
-         {/* <ListItem></ListItem> */}
-         <DataTableContainer></DataTableContainer> 
-      </div>
+          {/* <Heading></Heading>
+        <DataTableContainer></DataTableContainer> */}
+        </div>
+      </BrowserRouter>
     );
   }
 

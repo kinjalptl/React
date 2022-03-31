@@ -1,6 +1,6 @@
 
-const Heading = (props) => {
-    return <h3>Welcome, {props.greeting} to React Application </h3>;
+const Heading = () => {
+    return <h3>Welcome to React Application </h3>;
   };
   
   export default Heading;
